@@ -4,7 +4,6 @@ import config from 'config';
 
 export interface UserDocument extends mongoose.Document {
     email: string;
-    mail: string;
     password: string;
     createdAt: Date;
     updatedAt: Date;
