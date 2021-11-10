@@ -21,9 +21,7 @@ const userSchema = new mongoose.Schema({
 userSchema.pre("save", async function (next) {
     let user = this as UserDocument;
 
-    if (!user.isModified('password')) {
-        return next();
-    }
+    if (!user.isModified('password')) return next();
 
     const salt = await bcrypt.genSalt(config.get<number>('saltWorkFactor'));
 
@@ -40,6 +38,6 @@ userSchema.methods.comparePassword = async function (candidatePassword: string):
     return bcrypt.compare(candidatePassword, user.password).catch((e) => false);
 }
 
-const UserModel = mongoose.model("User", userSchema);
+const UserModel = mongoose.model<UserDocument>("User", userSchema);
 
 export default UserModel;
