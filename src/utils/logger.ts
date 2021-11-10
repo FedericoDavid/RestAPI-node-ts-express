@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 
 const log = logger({
     prettyPrint: true,
-    base:{
+    base: {
         pid: false, //process id
     },
     timestamp: () => `,"time":"${dayjs().format()}`,

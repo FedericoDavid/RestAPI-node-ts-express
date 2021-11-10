@@ -1,6 +1,6 @@
 import { Express, Request, Response } from 'express';
 
-function routes(app: Express){
+function routes(app: Express) {
     app.get("/hola", (req: Request, res: Response) => res.sendStatus(200));
 };
 
